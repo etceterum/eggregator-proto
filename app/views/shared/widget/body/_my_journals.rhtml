@@ -1,0 +1,5 @@
+<ul>
+<% journals.each do |journal| %>
+<li><%= link_to journal.name, view_journal_url(journal.safe_name) %></li>
+<% end %>
+</ul>

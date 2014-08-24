@@ -1,0 +1,9 @@
+<div id='pin-<%= @story.id %>' class='pin<% if @story_pin %> pinned<% end %>'>
+  <%= link_to_remote(
+        (@story_pin && 'unpin') || 'pin', 
+        { :url => { :action => 'pin_story', :story_id => @story.id, :journal_id => @journal.id, :page => @page }, :update => "pin-#{@story.id}"},
+        { :href => url_for(:action => "pin_story", :story_id => @story.id, :journal_id => @journal.id, :page => @page )}
+        )
+  %>
+</div>
+

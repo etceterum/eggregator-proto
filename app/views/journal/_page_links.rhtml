@@ -1,0 +1,53 @@
+<ul class='page-links'>
+<% 
+  page_link_groups(@page_count, @page0).each do |page_link_group|
+    if page_link_group.separator? 
+      %><li class='separator'>...</li>
+<% 
+    else
+      page_link_group.page_links.each do |page_link|
+        if page_link.page == @page 
+          %><li class='current'><%= page_link.page %></li>
+<% 
+        else 
+          %><li><%= 
+			#link_to(page_link.page, { :page => page_link.page }, { :title => "Go to Page #{page_link.page}" }) 
+  		    link_to_remote(
+		      page_link.page, 
+		      { :url => pin_journal_page_url(:id => @journal.id, :page => page_link.page) },
+  		      { :href => view_journal_page_url(:name => @journal.safe_name, :page => page_link.page) }
+		    )
+		  %></li>
+<% 
+        end 
+      end
+    end
+  end %></ul>
+
+<!-- 
+<ul class='page-links'>
+<% 
+  page_link_groups(@page_count, @page0).each do |page_link_group|
+    if page_link_group.separator? 
+      %><li class='separator'>...</li>
+<% 
+    else
+      page_link_group.page_links.each do |page_link|
+        if page_link.page == @page 
+          %><li class='current'><%= page_link.page %></li>
+<% 
+        else 
+          %><li><%= 
+			#link_to(page_link.page, { :page => page_link.page }, { :title => "Go to Page #{page_link.page}" }) 
+  		    link_to_remote(
+		      page_link.page, 
+		      { :url => pin_journal_page_url(:id => @journal.id, :page => page_link.page) },
+  		      { :href => view_journal_page_url(:name => @journal.safe_name, :page => page_link.page) }
+		    )
+		  %></li>
+<% 
+        end 
+      end
+    end
+  end %></ul>
+-->

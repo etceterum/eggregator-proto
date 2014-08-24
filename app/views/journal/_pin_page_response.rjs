@@ -1,0 +1,2 @@
+page.redirect_to view_journal_page_url(:name => @journal.safe_name, :page => @page)
+

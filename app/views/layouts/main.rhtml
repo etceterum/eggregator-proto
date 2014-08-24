@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+  <title id='title'><%= title %></title>
+
+  <%= stylesheet_link_tag 'reset' %>
+  <% 
+    @stylesheet_includes ||= []
+    @stylesheet_includes.each do |stylesheet|
+  %><%= stylesheet_link_tag stylesheet %>
+  <% end %>
+  <%= theme_stylesheet_link_tag 'layout' %>
+  <%= theme_stylesheet_link_tag 'main' %>
+  <% 
+    @theme_stylesheet_includes ||= []
+    @theme_stylesheet_includes.each do |stylesheet|
+  %><%= theme_stylesheet_link_tag stylesheet %>
+  <% end %>
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'main' %>
+  <% 
+    @javascript_includes ||= []
+    @javascript_includes.each do |include|
+  %><%= javascript_include_tag include %>
+  <% end %>
+  <% 
+    @theme_javascript_includes ||= []
+    @theme_javascript_includes.each do |include|
+  %><%= theme_javascript_include_tag include %>
+  <% end %>
+</head>
+<body>
+
+<div id='page'>
+<div class='ie-min-width'>
+<div class='ie-layout'>
+<div class='ie-container'>
+<div class='ie-content'>
+
+<div id='header'>
+	This is a header
+</div>
+
+<div id='body'>
+<div class='center-right-bg'>
+<div class='left-bg'>
+
+<div class='left'>
+<!-- left content here -->
+</div> <!-- .left -->
+
+<div class='right'>
+<div class='content'>
+<%= render :partial => 'shared/side_panel' %>
+</div>
+</div> <!-- .right -->
+
+<div class='center'>
+<%= yield %>
+</div> <!-- .center -->
+
+<div class='clear'>&nbsp;</div>
+</div> <!-- .left-bg -->
+</div> <!-- .center-right-bg -->
+</div> <!-- #body -->
+
+<div id='footer'>
+	This is a footer
+</div>
+	
+</div> <!-- .ie-content -->
+</div> <!-- .ie-container -->
+</div> <!-- .ie-layout -->
+</div> <!-- .ie-min-width -->
+</div> <!-- #page -->
+
+
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+if @story_pin
+  page[@story.id.to_s].add_class_name('pinned')
+else
+  page[@story.id.to_s].remove_class_name('pinned')
+end
+

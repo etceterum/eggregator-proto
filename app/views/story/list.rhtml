@@ -1,0 +1,41 @@
+<div class='future'><%= @future_story_count %> new stories available</div>
+
+<!-- Paginator -->
+<ul class='pages'>
+  <% if @page_index > 0 %>
+  <li><%= link_to 'First', :controller => 'stories', :action => 'page', :id => 1 %></li>
+  <li><%= link_to 'Previous', :controller => 'stories', :action => 'page', :id => @page_index %></li>
+  <% end %>
+  <% 1.upto(@present_page_count) do |n| %>
+    <li><%= link_to n.to_s, :controller => 'stories', :action => 'page', :id => n %></li>
+  <% end %>
+  <% if @page_index < @present_page_count - 1 %>
+  <li><%= link_to 'Next', :controller => 'stories', :action => 'page', :id => @page_index + 2 %></li>
+  <li><%= link_to 'Last', :controller => 'stories', :action => 'page', :id => @present_page_count %></li>
+  <% end %>
+</ul>
+
+<!-- Story List -->
+<ul class='stories'>
+<% @page_stories.each do |story| %>
+  <li>
+    <div class='story'>
+      <div class='header'>
+        <span class='id'>#<%= story.id %></span>
+        <span class='publisher'><%= story.publisher.name %></span>
+        <span class='votes'><%= story.publisher_votes %></span>
+        <span class='topics'>
+          <% story.publisher_topics.each do |topic| %>
+            <span class='topic'><%= topic.name %></span>
+          <% end %>
+        </span>
+      </div>
+      <div class='title'><a href='<%= story.source_url %>'><%= story.title %></a></div>
+      <div class='description'><%= story.description %></div>
+    </div>
+  </li>
+<% end %>
+</ul>
+
+<div class='past'></div>
+

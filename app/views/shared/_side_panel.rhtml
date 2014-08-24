@@ -1,0 +1,7 @@
+<% if @widgets %>
+<div class='widgets'>
+<% @widgets.each do |widget| %>
+<%= widget.render %>
+<% end %>
+</div>
+<% end %>

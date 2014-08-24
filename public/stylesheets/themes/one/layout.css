@@ -1,0 +1,108 @@
+/* Global */
+html {
+  font-size: 12px;
+}
+
+body {
+    font-family: Verdana, Arial, sans;
+	margin: 0;
+	padding: 0;
+}
+
+/* Header */
+#header {
+	background: #fff;
+	height: 50px;
+	border-bottom: 1px solid #a08c64;
+}
+
+form {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Body */
+#body {
+}
+
+/* background for the left column */
+#body div.left-bg {
+	margin: 0;
+    padding: 0;
+    background-image: url(/images/themes/one/bg1.png);
+    background-repeat: repeat-y;
+    width: 100%;
+}
+
+/* background for the center and right columns */
+#body div.center-right-bg {
+    margin: 0;
+    padding: 0;
+    background-image: url(/images/themes/one/bg2.png);
+    background-position: right;
+    background-repeat: repeat-y;
+    width: 100%;
+}
+
+/* Left column */
+#body div.left {
+	padding: 10px;
+    width: 80px;
+    float: left;
+}
+
+/* Right column */
+#body div.right {
+	padding: 10px 10px 10px 10px;
+    width: 290px;
+    float: right;
+}
+
+/* Right column content */
+#body div.right div.content {
+	margin-left: 10px;
+}
+
+/* Center column */
+#body div.center {
+	padding: 10px;
+    margin-left: 110px;
+    margin-right: 320px;
+}
+
+/* clear elements */
+#body div.clear {
+	clear: both;
+    display: block;
+    height: 1px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* footer stuff */
+#footer {
+	clear: both;
+	background: #fff;
+	height: 50px;
+	border-top: 1px solid #a08c64;
+}
+
+/* MinWidth stuff */
+#page {
+	width: 100%;
+	min-width: 1024px;
+}
+
+* html .ie-min-width {
+	padding-left: 1024px;
+}
+* html .ie-container {
+	margin-left: -1024px;
+	position: relative;
+}
+/*\*/
+* html .ie-min-width, * html .ie-container, * html .ie-layout, * html .ie-content  {
+	height: 1px;
+}
+/**/

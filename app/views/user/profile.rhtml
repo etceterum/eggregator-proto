@@ -1,0 +1,10 @@
+<div id='content'>
+	<h3>Journals</h3>
+	<ul>
+	<% @user.journals.each do |journal| %>
+		<li><%= link_to journal.name, edit_journal_url(:name => journal.safe_name) %></li>
+	<% end %>
+	</ul>
+	
+	<%= link_to 'New Journal', new_journal_url %>
+</div>

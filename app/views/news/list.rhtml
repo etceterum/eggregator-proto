@@ -1,0 +1,46 @@
+<html>
+<head>
+<%= stylesheet_link_tag 'main' %>
+</head>
+<body>
+
+<div class='tray'>Eggs in the tray: <%= @tray_story_count %></div>
+
+<ul class='pager'>
+  <% if @page > 0 %>
+  <li><%= link_to 'First', :page => 1 %></li>
+  <li><%= link_to 'Previous', :page => @page %></li>
+  <% end %>
+  <% 1.upto(@page_count) do |n| %>
+    <li><%= link_to n.to_s, :page => n %></li>
+  <% end %>
+  <% if @page < @page_count - 1 %>
+  <li><%= link_to 'Next', :page => @page + 2 %></li>
+  <li><%= link_to 'Last', :page => @page_count %></li>
+  <% end %>
+</ul>
+
+<ul class='stories'>
+<% @stories.each do |story| %>
+  <li>
+    <div class='header'>
+      <span class='id'>#<%= story.id %></span>
+      <span class='publisher'><%= story.publisher.name %></span>
+      <span class='votes'><%= story.publisher_votes %></span>
+      <span class='topics'>
+        <% story.publisher_topics.each do |topic| %>
+          <span class='topic'><%= topic.parent.name + '/' + topic.name %></span>
+        <% end %>
+      </span>
+    </div>
+    <div class='title'><a href='<%= story.source_url %>'><%= story.title %></a></div>
+    <div class='description'><%= story.description %></div>
+  </li>
+<% end %>
+</ul>
+
+<div class='sink'>Eggs in the sink: <%= @sink_story_count %></div>
+
+</body>
+</html>
+

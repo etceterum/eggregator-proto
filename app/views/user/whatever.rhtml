@@ -1,0 +1,40 @@
+<% if @topic_status_by_id %>
+<ul>
+<% @topic_status_by_id.keys.each do |topic_id| %>
+  <li>(<%= topic_id %>) -- <%= @topic_status_by_id[topic_id] %></li>
+<% end %>
+</ul>
+<% end %>
+
+<h2>Subscriptions</h2>
+<% form_tag({ :action => :profile }) do %>
+<input type='submit' name='submit' value='Submit' />
+<div class='tabber'
+<% @publisher_list.each do |publisher| %>
+  <div class='tabbertab'>
+    <h3><%= publisher.name %></h3>
+    <div>
+      <ul class='topics'>
+      <% @publisher_top_level_topic_map[publisher].each do |topic| %>
+        <li>
+          <%= check_box 'topic', topic.id, :checked => @user_subscribed[topic] %>
+          <label for='topic_<%= topic.id %>'><%= topic.name %></label>
+          <% if @topic_map[topic.id] %>
+          <ul>
+            <% @topic_map[topic.id].each do |subtopic| %>
+              <li>
+                <%= check_box 'topic', subtopic.id, :checked => @user_subscribed[subtopic] %>
+                <label for='topic_<%= subtopic.id %>'><%= subtopic.name %></label>
+              </li>
+            <% end %>
+          </ul>
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+</div>
+<% end %>
+

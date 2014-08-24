@@ -1,0 +1,161 @@
+/***** Global *****/
+
+/*
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: Verdana, Arial, sans;
+  background: #ffffe0 url(/images/bg1.png) repeat-y;
+  margin: 0px;
+  padding: 0px;
+}
+
+form {
+  margin: 0px;
+  padding: 0px;
+}
+*/
+
+/***** Content *****/
+
+#content {
+	margin: 0px 0px 0px 100px;
+}
+
+/***** Page Links *****/
+ul.page-links {
+  list-style: none;
+  padding: 0px 0px 0px 90px;
+}
+ul.page-links li {
+  display: inline;
+}
+ul.page-links li.separator {
+  padding: 0.5em 1em;
+}
+ul.page-links li a {
+  padding: 0.5em 0.75em;
+  border: 1px solid #777;
+  text-decoration: none;
+  color: black;
+}
+ul.page-links li a:hover {
+  /*background: #ffffd7;*/
+  background: #ece7e0;
+}
+ul.page-links li.current {
+  padding: 0.5em 0.75em;
+  border: 1px solid #036;
+  background-color: #036;
+  text-decoration: none;
+  color: yellow;
+}
+
+/***** Stories *****/
+ul.stories {
+  list-style: none;
+  margin: 0px;
+  padding: 2em 0px 2em 10px;
+}
+ul.stories li {
+  padding: 0.5em 0px 0.5em 0px;
+  margin-bottom: 5px;
+}
+ul.stories li {
+  color: #333;
+}
+ul.stories li.hover {
+  /*background: #ffffd7;*/
+  background: #ece7e0;
+}
+ul.stories li.pinned {
+  background: yellow;
+}
+ul.stories li.pinned.hover {
+  background: orange;
+}
+ul.stories li div.logo {
+  margin: 3px;
+  float: left;
+  width: 70px;
+  height: 40px;
+}
+ul.stories li div.logo a.digg {
+  display: block;
+  background: url(http://digg.com/img/badges/32x32-digg-guy.gif) no-repeat;
+  width: 32px;
+  height: 32px;
+  margin: 0px auto;
+}
+ul.stories li div.container {
+  padding-left: 80px;
+  padding-right: 70px;
+}
+ul.stories li div.container div.content {
+}
+ul.stories li div.container div.content h3.title {
+  margin: 0px;
+}
+ul.stories li div.container div.content h3.title a {
+  text-decoration: none;
+  color: #036;
+}
+ul.stories li div.container div.content h3.title a:hover {
+  color: #069;
+}
+ul.stories li div.container div.content h3.title a:visited {
+  color: #777;
+}
+ul.stories li div.container div.content div.description {
+  text-align: justify;
+  border-top: 1px solid #333;
+  padding: 5px 0px;
+}
+ul.stories li div.controls {
+  width: 50px;
+  float: right;
+}
+ul.stories li div.controls div.pin a {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background: transparent url(/images/pin1.png) no-repeat -24px 0px;
+}
+ul.stories li.hover div.controls div.pin a {
+  display: block;
+}
+ul.stories li.pinned div.controls div.pin a {
+  display: block;
+  background: transparent url(/images/pin1.png) no-repeat;
+}
+ 
+/***** Story Topics *****/
+ul.topics {
+  list-style: none;
+  padding: 0px;
+}
+
+ul.topics ul {
+  list-style: none;
+  padding: 0.5em 0px 1.5em 2em;
+}
+
+ul.topics ul li {
+  /*display: inline;*/
+}
+
+/***** Widgets *****/
+div.widgets div.widget {
+	background: #fff;
+}
+
+div.widgets div.widget div.header {
+	background: #0f0;
+}
+
+/* My Journals Widget */
+div.widgets div.widget.my-journals ul {
+	list-style: none;
+}

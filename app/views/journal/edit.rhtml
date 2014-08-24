@@ -1,0 +1,45 @@
+<% form_tag({ :action => 'save'}) do %>
+<div id='content'>
+	
+	<div>
+		<% if @journal.id %><%= hidden_field 'journal', 'id' %><% end %>
+		<input type='submit' value='<%= (@journal.id && 'Update') || 'Create' %>' />
+	</div>
+	
+	<h3>Journal Properties</h3>
+	<label for='journal_name'>Name</label><%= text_field 'journal', 'name' %>
+
+	<h3>Journal Topics</h3>
+	<ul class='topics'><% 
+		@publishers.each do |publisher| %>
+		<li><%= publisher.name %>
+			<ul><% 
+				@topics_by_publisher[publisher].keys.sort { |a, b| a.name <=> b.name }.each do |topic| %>
+				<li>
+					<%= check_box_tag(
+						'journal[publisher_topic_ids][]', 
+						topic.id, 
+						@journal.publisher_topics.include?(topic), 
+						:id => "journal_publisher_topic_ids_#{topic.id}"
+						) 
+					%><label for='journal_publisher_topic_ids_<%= topic.id %>'><%= topic.name %></label>
+					<ul><% 
+						@topics_by_publisher[publisher][topic].keys.sort { |a, b| a.name <=> b.name }.each do |subtopic| %>
+						<li><%= 
+							check_box_tag(
+							  	'journal[publisher_topic_ids][]', 
+								subtopic.id, 
+								@journal.publisher_topics.include?(subtopic),
+								:id => "journal_publisher_topic_ids_#{subtopic.id}"
+								) 
+							%><label for='journal_publisher_topic_ids_<%= subtopic.id %>'><%= subtopic.name %></label></li><% 
+						end %>
+					</ul>
+				</li><% 
+				end %>
+			</ul>
+		</li><% 
+		end %>
+	</ul>
+</div>
+<% end %>

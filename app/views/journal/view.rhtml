@@ -1,0 +1,47 @@
+<%= render :partial => 'page_links' %>
+
+<!-- Story List -->
+<ul class='stories'>
+<% @page_stories.each do |@story| %>
+    <% @story_pin = @story.pins.size > 0 %>
+    <li id='<%= @story.id %>' class='story popularity<%= @story.popularity %><% if @story_pin %> pinned<% end %>'>
+    <div class='logo'>
+        <a class='<%= @story.publisher.safe_name %>' href='<%= @story.publisher_url %>' title='Link to story discussion at <%= @story.publisher.name %>'></a>
+    </div>
+
+    <div class='controls'>
+
+      <!-- story pin -->
+      <div class='pin'>
+      <%= 
+         link_to_remote(
+           '', 
+           { :url => pin_journal_story_url(:id => @journal.id, :story_id => @story.id, :page => @page) },
+           { :href => pin_journal_story_url(:id => @journal.id, :story_id => @story.id, :page => @page) }
+         )
+      %>
+      </div>
+    </div>
+
+    <div class='container'>
+      <div class='content'>
+      
+        <h3 class='title'><%= link_to @story.title, @story.source_url %></h3>
+        
+        <div class='description'><%= @story.description %></div>
+    
+        <div class='info'>
+          <span class='published'><%= distance_of_time_in_words(Time.now, @story.promoted_at) %> ago</span>
+          <span class='user'>/ <%= @story.publisher_user.name %></span>
+          <span class='votes'>/ <%= @story.publisher_votes %> votes</span>
+          <span class='topics'>/ <%= @story.publisher_topics.collect { |t| t.name } %></span>
+        </div>
+
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
+
+<%= render :partial => 'page_links' %>
+
